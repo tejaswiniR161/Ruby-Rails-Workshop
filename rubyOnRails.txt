@@ -1,0 +1,132 @@
+ruby 
+
+gem install httparty
+
+everything is an object ... if not its a variable 
+in ruby.... n1=10 means... 10 is an object that gets created which is later reffered by n1
+proof :
+
+irb(main):003:0> n1=10
+=> 10
+irb(main):004:0> n1.object_id
+=> 21
+irb(main):005:0> n1=20
+=> 20
+irb(main):006:0> n1.object_id
+=> 41
+irb(main):007:0> name="money"
+=> "money"
+irb(main):008:0> n1.object_id
+=> 41
+irb(main):009:0> n1="money"
+=> "money"
+irb(main):010:0> n1.object_id
+=> 26397600
+irb(main):011:0> n1="moneydhfhd"
+=> "moneydhfhd"
+irb(main):012:0> n1.object_id
+=> 26395032
+irb(main):013:0>
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+rails new nameoftheapp	#create an app
+rails server    		#to start the server
+
+open the url in the browser and enjoy.. whatever
+
+rails generate scaffold show name:string genre:string watchedon:date recommend:boolean rating:integer
+//for creating model
+
+
+
+rails db:migrate
+localhost:3000/show
+localhost:3000/show.json for json data
+
+
+
+
+
+
+
+doing from scratch
+
+rails destroy scaffold show
+rails db:drop
+delete the files in db folder schema sqllite 
+
+
+
+---------------------------------------------------
+
+rails - MVC architecture
+made from basecamp
+convension over configuration
+
+mean stack and mern stack
+
+rails application are made of several individual model each of which is a ruby class and maps to a database table
+active record is the powerful library used all rules for data access association validations and calculations are written inside the model
+
+controller access incoming requests performs the necessary processing and pass the control to the view
+it sets up variables to be used in the view
+and proceeds to render or redirect to another pattern after the processing is complete
+
+view contains the html markup to be rendered in the browser
+these templates take plain html and use ruby to inject the data and use specific logic as needed
+action view is the powerful library used
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+rails generate controller site index
+http://localhost:3000/site/index
+
+
+every controller gets its own views folder
+every action inside a contoller gets its own view file
+
+rails generate model modelname
+
+migration files are responsible for making the changes to the schema of the database
+rails db:migrate
+
+embeded ruby erb
+
+
+ORM - Object Relational Mapping
+ORM helps in mapping table to class 
+table columns to object attributes
+table rows to objects
+
+
+insetion from console
+irb(main):003:0> s1=Show.new
+=> #<Show id: nil, name: nil, description: nil, recommended: nil, watchedon: nil, created_at: nil, updated_at: nil>
+irb(main):004:0> s1.name="Game of thrones"
+=> "Game of thrones"
+irb(main):005:0> s1.description="Who gets the iron throne"
+=> "Who gets the iron throne"
+irb(main):006:0> s1.watchedon=Date.today
+=> Fri, 13 Apr 2018
+irb(main):007:0> s1.recommended=true
+=> true
+irb(main):008:0> s1.save
+   (0.0ms)  begin transaction
+  SQL (0.0ms)  INSERT INTO "shows" ("name", "description", "recommended", "watchedon", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Game of thrones"], ["description", "Who gets the iron throne"], ["recommended", "t"], ["watchedon", "2018-04-13"], ["created_at", "2018-04-13 05:06:10.998706"], ["updated_at", "2018-04-13 05:06:10.998706"]]
+   (84.6ms)  commit transaction
+=> true
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+model is singular 
+table is plural
+controller is also plural
+
+rails generate controller shows
+

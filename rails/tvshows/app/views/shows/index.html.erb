@@ -1,0 +1,33 @@
+<div class="alert alert-success" role="alert">
+<%=notice%>
+</div>
+<% if @s.empty? %>
+<h6>Nothing is added yet !</h6>
+<% else %>
+<table class="table tabled-striped">
+    <thead>
+       <th>Sl No.</th>
+        <th>Name</th>
+    <th>Description</th>
+    <th>Recommended</th>
+    <th>Watched on</th>
+</thead>
+    <tbody>
+        <%c=0%>
+<% @s.each do |i| %>
+    <tr>
+        <%c+=1%>
+<td> <%=c%></td>
+        <td> <%=i.name%></td>
+        <td> <%=i.description%></td>
+        <td> <%=i.recommended%></td>
+        <td> <%=i.watchedon%></td>
+        <td> <%= link_to "remove",show_path(i.id),method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%></td>
+        </tr>
+<%end%>
+        </tbody>
+</table>
+<%end%>
+
+
+<%= link_to "Add Show",new_show_path, class: "btn btn-success"%>

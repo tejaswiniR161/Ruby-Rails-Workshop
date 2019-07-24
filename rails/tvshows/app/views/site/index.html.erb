@@ -1,0 +1,10 @@
+<h2>Hello, humans</h2>
+
+<ul>
+
+<% genre=["Drama","Adventure","Thriller"]%>
+    <h3>Listing genre(<%= genre.length%>)</h3>
+<% genre.sort.each do |g| %>
+    <li><%=g%></li>
+<%end%>
+</ul>
